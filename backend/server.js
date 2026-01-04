@@ -15,6 +15,10 @@ const DIST_PATH = path.join(__dirname, "dist");
 app.use(express.static(DIST_PATH));
 
 
+// Fallback for React Router
+app.get("*", (req, res) => {
+  res.sendFile(path.join(DIST_PATH, "index.html"));
+});
 
 
 /* ================= MOCK AI ================= */
