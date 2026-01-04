@@ -30,6 +30,8 @@ jobs:
           npm install
           npm run build
 
+          cp -r frontend/dist backend/
+
       # Install backend
       - name: Install backend
         run: |
