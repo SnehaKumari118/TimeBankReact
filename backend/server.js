@@ -11,13 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from Vite build output
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-// Catch-all route for SPA (React Router)
-app.use((req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
-});
+const DIST_PATH = path.join(__dirname, "dist");
+app.use(express.static(DIST_PATH));
 
 
 
