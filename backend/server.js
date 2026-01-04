@@ -4,6 +4,7 @@ const db = require("./db");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+import { fileURLToPath } from "url";
 
 const app = express();
 
@@ -11,8 +12,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const DIST_PATH = path.join(__dirname, "dist");
-app.use(express.static(DIST_PATH));
+// Needed for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve React build
+app.use(express.static(path.join(__dirname, "dist")));
+
+// React Router fallback
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 
 /* ================= MOCK AI ================= */
