@@ -1,5 +1,5 @@
-CREATE DATABASE timebank;
-USE timebank;
+CREATE DATABASE timebankReact;
+USE timebankReact;
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,

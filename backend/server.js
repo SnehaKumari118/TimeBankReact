@@ -4,25 +4,21 @@ const db = require("./db");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-import { fileURLToPath } from "url";
 
 const app = express();
 
 /* ================= MIDDLEWARE ================= */
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",        // local React (Vite)
+    "http://localhost:3000",        // optional
+    "https://your-frontend.azurestaticapps.net"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
-
-// Needed for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Serve React build
-app.use(express.static(path.join(__dirname, "dist")));
-
-// React Router fallback
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
 
 
 /* ================= MOCK AI ================= */
@@ -31,26 +27,31 @@ app.post("/generate-description", (req, res) => {
   const { title } = req.body;
 
   if (!title) {
-    return res.status(400).json({
+    return res.json({
       success: false,
-      message: "Title is required",
+      message: "Title is required"
     });
   }
 
   const templates = [
-    `I offer professional ${title} services with a focus on quality and timely delivery.`,
-    `${title} service designed to help you achieve your goals efficiently.`,
-    `Get expert help with ${title} tailored to your needs.`,
-    `Reliable ${title} service with a professional approach.`,
-    `High-quality ${title} service focused on long-term value.`,
+    `I offer professional ${title} services with a focus on quality, efficiency, and timely delivery. Ideal for individuals and small teams.`,
+    
+    `${title} service designed to help you achieve your goals efficiently. Clear communication and reliable support guaranteed.`,
+    
+    `Get expert help with ${title}. I provide structured, easy-to-understand solutions tailored to your needs.`,
+    
+    `Looking for reliable ${title}? I offer practical solutions with a user-friendly and professional approach.`,
+    
+    `High-quality ${title} service focused on problem-solving, learning, and long-term value.`
   ];
 
+  // pick random description
   const description =
     templates[Math.floor(Math.random() * templates.length)];
 
   res.json({
     success: true,
-    description,
+    description
   });
 });
 

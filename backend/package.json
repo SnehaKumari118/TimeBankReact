@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@azure/storage-blob": "^12.29.1",
     "@tailwindcss/cli": "^4.1.18",
     "body-parser": "^2.2.1",
     "cors": "^2.8.5",
@@ -11,9 +12,8 @@
     "socket.io": "^4.8.3",
     "tailwindcss": "^4.1.18"
   },
-
-"scripts": {
-  "start": "node server.js",
-  "build:css": "tailwindcss -i ./src/input.css -o ./public/output.css --minify"
-}
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/output.css --minify"
+  }
 }

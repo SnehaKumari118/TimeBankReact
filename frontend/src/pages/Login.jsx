@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 
-const API =  "https://timebank-ang2a2c2cubxfzb4.eastasia-01.azurewebsites.net"; // backend
+const API =  "http://localhost:3000"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");

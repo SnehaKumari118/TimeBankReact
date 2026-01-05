@@ -15,7 +15,7 @@ const Register = () => {
 
     try {
       const res = await fetch(
-         "https://timebank-ang2a2c2cubxfzb4.eastasia-01.azurewebsites.net/register",
+         "http://localhost:3000/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
