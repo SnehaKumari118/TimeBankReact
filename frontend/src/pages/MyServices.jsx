@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const API =  "http://localhost:3000";
+const API =  "timebank-backend-acgwa3dahgctcbfp.eastasia-01.azurewebsites.net";
 
 export default function MyServices() {
   const navigate = useNavigate();

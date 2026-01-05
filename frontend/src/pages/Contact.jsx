@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API ="http://localhost:3000";
+const API ="timebank-backend-acgwa3dahgctcbfp.eastasia-01.azurewebsites.net";
 
 const Contact = () => {
   const [open, setOpen] = useState(false);

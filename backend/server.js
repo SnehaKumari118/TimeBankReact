@@ -12,7 +12,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",        // local React (Vite)
     "http://localhost:3000",        // optional
-    "https://your-frontend.azurestaticapps.net"
+    "https://ambitious-wave-030419c00.6.azurestaticapps.net"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
