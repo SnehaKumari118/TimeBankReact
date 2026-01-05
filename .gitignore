@@ -7,10 +7,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# OS files
-.DS_Store
-Thumbs.db
-
 # Environment files
 .env
 .env.local
@@ -23,8 +19,6 @@ Thumbs.db
 .swa-build/
 .swa-config.json
 
-# Vite build output
-dist/
 
 # SQLite or other local DB files
 *.sqlite
@@ -41,3 +35,5 @@ uploads/
 
 # Build artifacts
 build/
+
+database.sql
